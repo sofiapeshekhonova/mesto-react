@@ -1,0 +1,16 @@
+.intro__button {
+  width: 150px;
+  height: 50px;
+  border: 2px solid #fff;
+  background-color: #000;
+  background-image: url(../../../images/plus_icon.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 528px) {
+  .intro__button {
+    width: 100%;
+    margin-top: 32px;
+  }
+}

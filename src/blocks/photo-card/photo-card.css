@@ -1,0 +1,7 @@
+.photo-card {
+  max-width: 282px;
+  background-color: black;
+  border-radius: 10px;
+  list-style-type: none;
+  position: relative;
+}

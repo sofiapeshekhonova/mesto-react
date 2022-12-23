@@ -1,0 +1,4 @@
+.photo-card__description-like_active {
+  background-image: url(../../../images/heart_black.svg);
+  opacity: 1;
+}

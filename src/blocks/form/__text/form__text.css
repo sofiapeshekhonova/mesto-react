@@ -1,0 +1,15 @@
+.form__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0;
+  padding-bottom: 8px;
+  border: 0;
+  border-bottom: 1px solid rgb(0, 0, 0, .2);
+  width: 100%;
+}
+
+.form__text:focus-visible {
+  outline: 1px solid blue;
+  padding: 4px 0 4px 4px;
+}

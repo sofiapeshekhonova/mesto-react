@@ -1,0 +1,8 @@
+.photo-card__description {
+  max-width: 246px;
+  display: flex;
+  justify-content: space-between;
+  padding: 22px 21px 22px 21px;
+  align-items: center;
+  background-color: white;
+}

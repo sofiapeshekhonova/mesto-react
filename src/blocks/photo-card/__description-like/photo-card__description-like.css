@@ -1,0 +1,25 @@
+.photo-card__description-like {
+  background-image: url(../../../images/heard.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0;
+  background-color: transparent;
+  opacity: 1;
+  transition: opacity .5s ease-out;
+  padding: 0;
+  min-height: 19px;
+  min-width: 22px;
+}
+
+@media (any-hover: hover) {
+  .photo-card__description-like:hover {
+    cursor: pointer;
+    opacity: .5;
+  }
+}
+
+.photo-card__description-likes {
+  text-align: center;
+
+}

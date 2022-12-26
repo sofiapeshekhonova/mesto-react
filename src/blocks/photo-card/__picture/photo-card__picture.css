@@ -6,4 +6,5 @@
   display: block;
   color: white;
   cursor: pointer;
+  object-fit: cover;
 }

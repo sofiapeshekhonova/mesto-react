@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import '../index.css';
 import Header from './Header';
 import Main from './Main';
@@ -8,18 +8,18 @@ import ImagePopup from "./ImagePopup";
 import { api } from '../utils/Api';
 
 function App() {
-  const [isOpenAvatarPopup, isEditAvatarPopupOpen] = React.useState(false);
-  const [isOpenProfilePopup, isEditProfilePopupOpen] = React.useState(false);
-  const [isOpenPlacePopup, isAddPlacePopupOpen] = React.useState(false);
-  const [selectedCard, fixSelectedCard] = React.useState({});
-  const [isOpenCardPopup, isOpenCardPopupOpen] = React.useState(false);
+  const [isOpenAvatarPopup, isEditAvatarPopupOpen] = useState(false);
+  const [isOpenProfilePopup, isEditProfilePopupOpen] = useState(false);
+  const [isOpenPlacePopup, isAddPlacePopupOpen] = useState(false);
+  const [selectedCard, fixSelectedCard] = useState({});
+  const [isOpenCardPopup, isOpenCardPopupOpen] = useState(false);
 
-  const [userAvatar, setUserAvatar] = React.useState('');
-  const [userName, setUserName] = React.useState('');
-  const [userDescription, setUserDescription] = React.useState('');
-  const [cards, setCards] = React.useState([]);
+  const [userAvatar, setUserAvatar] = useState('');
+  const [userName, setUserName] = useState('');
+  const [userDescription, setUserDescription] = useState('');
+  const [cards, setCards] = useState([]);
 
-  React.useEffect(() => {
+ useEffect(() => {
     Promise.all([api.getUserInfos(), api.getInitialCards()])
       .then(([user, cards]) => {
         setUserName(user.name);
@@ -36,23 +36,6 @@ function App() {
         console.log(err);
       })
   }, [])
-
-  // React.useEffect(() => {
-  //   function handleClosePopup (evt) {
-  //     if (evt.button === 0) {
-  //       if (
-  //         evt.target.classList.contains("popup_opened") ||
-  //         evt.target.classList.contains("popup__close-icon")
-  //       ) {
-  //         closeAllPopups();
-  //       }
-  //     }
-  //   }
-  //     document.addEventListener("mousedown", handleClosePopup)
-  //     return () => {
-  //       document.removeEventListener('keydown', handleClosePopup);
-  //     }
-  //   })
 
      // _handleEscClose = (evt) => {
     //   if (evt.key === "Escape") {
@@ -78,7 +61,6 @@ function App() {
   }
 
   function closeAllPopups (evt) {
-    if (evt.button === 0 ) {
       if (
         evt.target.classList.contains("popup_opened") ||
         evt.target.classList.contains("popup__close-icon")
@@ -88,11 +70,9 @@ function App() {
         isEditAvatarPopupOpen(false);
         isOpenCardPopupOpen(false)
       }
-    }
   }
 
   return (
-    <>
       <div className="page">
         <Header />
         <Main onEditAvatar={handleEditAvatarClick} onEditProfile={handleEditProfileClick} 
@@ -122,7 +102,6 @@ function App() {
         <PopupWithForm name='confirm' title={"Вы уверенны?"} buttonText={"Да"}></PopupWithForm>
         <ImagePopup isOpen={isOpenCardPopup} card={selectedCard} onClose={closeAllPopups}/>
       </div>
-    </>
   );
 }
 

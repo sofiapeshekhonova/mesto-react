@@ -1,5 +1,7 @@
 {
   "name": "mesto-react",
+  "homepage": "https://sofiapeshekhonova.github.io/mesto-react",
+  "description": "Learning project",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,6 +21,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
+  "author": "Sofia Peshekhonova",
   "eslintConfig": {
     "extends": [
       "react-app",

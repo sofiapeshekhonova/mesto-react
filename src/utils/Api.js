@@ -11,7 +11,7 @@ class Api {
     };
   }
 
-  getUserInfos() {
+  getUserInfo() {
     return fetch(this._baseUrl + `/users/me`, {
       method: "GET",
       headers: this._headers,
@@ -25,14 +25,12 @@ class Api {
     .then(this.__checkResponse);
   }
 
-  saveNewUserInfo(name, about) {
+  saveNewUserInfo(userInformaiton) {
     return fetch(this._baseUrl + '/users/me', {
       method: 'PATCH',
       headers: this._headers,
-      body: JSON.stringify({
-        name: name,
-        about: about
-      })})
+      body: JSON.stringify(userInformaiton)
+    })
       .then(this.__checkResponse);
   }
 
@@ -40,20 +38,26 @@ class Api {
     return fetch(this._baseUrl + '/users/me/avatar', {
       method: 'PATCH',
       headers: this._headers,
-      body: JSON.stringify({
-        avatar: avatar
-      })})
+      body: JSON.stringify(avatar)})
       .then(this.__checkResponse);
   }
 
-  sendNewCard(name,link) {
+  // sendNewCard(name,link) {
+  //   return fetch(this._baseUrl + '/cards', {
+  //     method: 'POST',
+  //     headers: this._headers,
+  //     body: JSON.stringify({
+  //       name: name,
+  //       link: link,
+  //     })})
+  //     .then(this.__checkResponse);
+  // }
+
+  postNewCard(cardInformation) {
     return fetch(this._baseUrl + '/cards', {
       method: 'POST',
       headers: this._headers,
-      body: JSON.stringify({
-        name: name,
-        link: link,
-      })})
+      body: JSON.stringify(cardInformation)})
       .then(this.__checkResponse);
   }
 

@@ -10,7 +10,9 @@ function ConfirmPopup ({card, isOpen, onClose, onConfirmDeleteClick}) {
 
     return (
       <PopupWithForm onSubmit={handleSubmit} isOpen={isOpen} onClose={onClose}
-      title={"Вы уверенны?"} buttonText={"Да"} name='confirm'/>
+        buttonValid={true} title={"Вы уверенны?"} 
+        buttonText={"Да"} name='confirm'
+      />
     )
 }
 

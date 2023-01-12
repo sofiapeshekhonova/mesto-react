@@ -1,8 +1,8 @@
-import PopupWithForm from "./PopupWithForm"
+import PopupWithForm from "./PopupWithForm";
 import {useEffect, useRef, useState} from "react";
 
-function EditAvatarPopup (props) {
-  const inputRef = useRef('');
+function EditAvatarPopup(props) {
+  const inputRef = useRef("");
   const [isValidInput, setIsValidInput] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -14,8 +14,8 @@ function EditAvatarPopup (props) {
       setErrorMessage(e.target.validationMessage);
       setIsValidInput(false);
     }
-  };
-  
+  }
+
   useEffect(() => {
     setIsValidInput(false);
     setErrorMessage("");
@@ -24,22 +24,36 @@ function EditAvatarPopup (props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-  
-    props.onUpdateAvatar({
-      avatar: inputRef.current.value /* Значение инпута, полученное с помощью рефа */,
-    });
-  } 
 
+    props.onUpdateAvatar({
+      avatar:
+        inputRef.current.value /* Значение инпута, полученное с помощью рефа */,
+    });
+  }
 
   return (
-    <PopupWithForm disabled={((errorMessage === '' && isValidInput) ? false : true)} buttonValid={isValidInput && !errorMessage} 
-      name='avatar' title={"Обновить аватар"} buttonText={props.isLoading ? `Сохранение...` : `Сохранить`} 
-      onSubmit={handleSubmit} isOpen={props.isOpen} onClose={props.onClose}>
-      <input id="avatar-input" ref={inputRef} type="url" className="form__text form__text_type_avatar" name="avatar" placeholder="Ссылка на картинку"
-        required onChange={onChange}/>
-      <span className={isValidInput ? "form__text-error" : "form__text-error_active"}>{errorMessage}</span>
-  </PopupWithForm>
-  )
+    <PopupWithForm
+      disabled={!(errorMessage === "" && isValidInput)}
+      name="avatar"
+      title={"Обновить аватар"}
+      buttonText={props.isLoading ? `Сохранение...` : `Сохранить`}
+      onSubmit={handleSubmit}
+      isOpen={props.isOpen}
+      onClose={props.onClose}
+    >
+      <input
+        id="avatar-input"
+        ref={inputRef}
+        type="url"
+        className="form__text form__text_type_avatar"
+        name="avatar"
+        placeholder="Ссылка на картинку"
+        required
+        onChange={onChange}
+      />
+      <span className={ isValidInput ? "form__text-error" : "form__text-error_active"}>{errorMessage}</span>
+    </PopupWithForm>
+  );
 }
 
-export default EditAvatarPopup
+export default EditAvatarPopup;

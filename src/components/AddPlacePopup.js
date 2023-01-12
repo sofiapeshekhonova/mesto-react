@@ -1,17 +1,14 @@
-import PopupWithForm from "./PopupWithForm"
+import PopupWithForm from "./PopupWithForm";
 import {useState, useEffect} from "react";
 
-
-function AddPlacePopup (props) {
-  const [name, setName] = useState('');
-  const [link, setLink] = useState('')
+function AddPlacePopup(props) {
+  const [name, setName] = useState("");
+  const [link, setLink] = useState("");
 
   const [isValidInputName, setIsValidInputName] = useState(true);
   const [nameErrorMessage, setNameErrorMessage] = useState("");
   const [isValidInputLink, setIsInputLinkValid] = useState(true);
   const [linkErrorMessage, setLinkErrorMessage] = useState("");
-
-
 
   function handleNameChange(e) {
     setName(e.target.value);
@@ -42,40 +39,58 @@ function AddPlacePopup (props) {
       link,
     });
   }
-  
 
   useEffect(() => {
-    setName('');
-    setLink('');
+    setName("");
+    setLink("");
     setNameErrorMessage("");
     setLinkErrorMessage("");
     setIsValidInputName(false);
     setIsInputLinkValid(false);
   }, [props.isOpen]);
 
-
   return (
-    <PopupWithForm disabled={(isValidInputLink && isValidInputName) ? false : true} buttonValid={isValidInputLink && isValidInputName} 
-      name='place' title={"Новое место"} buttonText={props.isLoading ? `Сохранение...` : `Сохранить`} 
-      onSubmit={handleFormSubmit} isOpen={props.isOpen} onClose={props.onClose}>
-      <input  id="place-name-input" value={name} onChange={handleNameChange} type="text" 
-        className="form__text form__text_type_place-name" name="placeName" placeholder="Название" 
-        required minLength="2" maxLength="40"/>
+    <PopupWithForm
+      disabled={!isValidInputLink || !isValidInputName}
+      name="place"
+      title={"Новое место"}
+      buttonText={props.isLoading ? `Сохранение...` : `Сохранить`}
+      onSubmit={handleFormSubmit}
+      isOpen={props.isOpen}
+      onClose={props.onClose}
+    >
+      <input
+        id="place-name-input"
+        value={name}
+        onChange={handleNameChange}
+        type="text"
+        className="form__text form__text_type_place-name"
+        name="placeName"
+        placeholder="Название"
+        required
+        minLength="2"
+        maxLength="40"
+      />
       <span className={isValidInputName ? "form__text-error" : "form__text-error_active"}>{nameErrorMessage}</span>
-      <input  id="place-link-input" value={link} onChange={handleLinkChange} type="url" 
-        className="form__text form__text_type_place-link" name="placeLink" placeholder="Ссылка на картинку"
-        required minLength="2"/>
-      <span className={isValidInputLink ? "form__text-error" : "form__text-error_active"}>{linkErrorMessage}</span>
+      <input
+        id="place-link-input"
+        value={link}
+        onChange={handleLinkChange}
+        type="url"
+        className="form__text form__text_type_place-link"
+        name="placeLink"
+        placeholder="Ссылка на картинку"
+        required
+        minLength="2"
+      />
+      <span className={ isValidInputLink ? "form__text-error" : "form__text-error_active"}> {linkErrorMessage} </span>
     </PopupWithForm>
-  )
+  );
 }
-export default AddPlacePopup
-
-
+export default AddPlacePopup;
 
 // import PopupWithForm from "./PopupWithForm"
 // import {useState, useEffect} from "react";
-
 
 // function AddPlacePopup (props) {
 //   const [name, setName] = useState('');
@@ -120,13 +135,13 @@ export default AddPlacePopup
 //       link,
 //     });
 //   }
-  
+
 //   function blurHandler(e) {
 //     switch (e.target.name) {
-//       case 'placeName' : 
+//       case 'placeName' :
 //       setNameDirty(true)
 //       break
-//       case 'placeLink' : 
+//       case 'placeLink' :
 //       setLinkDirty(true)
 //       break
 //     }
@@ -138,16 +153,14 @@ export default AddPlacePopup
 //     setNameDirty(false)
 //     setLinkDirty(false)
 
-    
 //   }, [props.isOpen]);
 
-
 //    return (
-//     <PopupWithForm  name='place' title={"Новое место"} buttonText={props.isLoading ? `Сохранение...` : `Сохранить`} 
+//     <PopupWithForm  name='place' title={"Новое место"} buttonText={props.isLoading ? `Сохранение...` : `Сохранить`}
 //     onSubmit={handleFormSubmit} isOpen={props.isOpen} onClose={props.onClose}>
 //     <input onBlur={blurHandler} id="place-name-input" value={name} onChange={handleNameChange} type="text" className="form__text form__text_type_place-name" name="placeName" placeholder="Название" />
 //     {(nameDirty && nameError) && <span className="form__text-error place-name-input-error">{nameError}</span>}
-    
+
 //     <input onBlur={blurHandler} id="place-link-input" value={link} onChange={handleLinkChange} type="url" className="form__text form__text_type_place-link" name="placeLink" placeholder="Ссылка на картинку"/>
 //     {(linkDirty && linkError) && <span className="form__text-error place-link-input-error">{linkError}</span>}
 //   </PopupWithForm>

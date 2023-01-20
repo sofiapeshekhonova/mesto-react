@@ -1,11 +1,12 @@
 # Проект Место (рефакторинг на React.js)
-#### **Учебный проект Яндекс-практикум.**
 
-## GH-pages
-https://sofiapeshekhonova.github.io/mesto-react/
+  [GH-pages](https://sofiapeshekhonova.github.io/mesto-react/)
 
-<div align="center">
-    <img src="/images/gif.gif" width="500" alt="запись экрана проекта">
+
+<div align="left">
+  <a href="https://sofiapeshekhonova.github.io/mesto-react/">
+    <img src="https://github.com/sofiapeshekhonova/mesto-react/blob/main/src/images/gif.gif?raw=true" width="500" alt="запись экрана проекта">
+  <a>
 </div>
 
 ## Описание проекта

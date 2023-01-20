@@ -4,7 +4,6 @@
 ## GH-pages
 https://sofiapeshekhonova.github.io/mesto-react/
 
-
 <div align="center">
     <img src="/images/gif.gif" width="500" alt="запись экрана проекта">
 </div>

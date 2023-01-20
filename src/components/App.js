@@ -11,10 +11,10 @@ import AddPlacePopup from "./AddPlacePopup";
 import ConfirmPopup from "./ConfirmPopup";
 
 function App() {
-  const [isOpenAvatarPopup, setIsEditAvatarPopup] = useState(false);
-  const [isOpenProfilePopup, setIsEditProfilePopup] = useState(false);
-  const [isOpenPlacePopup, setIsAddPlacePopup] = useState(false);
-  const [isOpenConfimPopup, setIsAddConfimPopup] = useState(false);
+  const [isOpenAvatarPopup, setIsOpenAvatarPopup] = useState(false);
+  const [isOpenProfilePopup, setIsOpenProfilePopup] = useState(false);
+  const [isOpenPlacePopup, setIsOpenPlacePopup] = useState(false);
+  const [isOpenConfimPopup, setIsOpenConfimPopup] = useState(false);
   const [selectedCard, setSelectedCard] = useState({});
   const [isOpenCardPopup, setIsOpenCardPopup] = useState(false);
   const [cards, setCards] = useState([]);
@@ -115,7 +115,7 @@ function App() {
   }
 
   function handleConfimCardDelete(card) {
-    setIsAddConfimPopup(true);
+    setIsOpenConfimPopup(true);
     setSelectedCard(card);
   }
 
@@ -136,15 +136,15 @@ function App() {
   }
 
   function handleEditAvatarClick() {
-    setIsEditAvatarPopup(true);
+    setIsOpenAvatarPopup(true);
   }
 
   function handleEditProfileClick() {
-    setIsEditProfilePopup(true);
+    setIsOpenProfilePopup(true);
   }
 
   function handleAddPlaceClick() {
-    setIsAddPlacePopup(true);
+    setIsOpenPlacePopup(true);
   }
 
   useEffect(() => {
@@ -172,11 +172,11 @@ function App() {
   }, []);
 
   function closeAllPopups() {
-    setIsEditProfilePopup(false);
-    setIsAddPlacePopup(false);
-    setIsEditAvatarPopup(false);
+    setIsOpenProfilePopup(false);
+    setIsOpenPlacePopup(false);
+    setIsOpenAvatarPopup(false);
     setIsOpenCardPopup(false);
-    setIsAddConfimPopup(false);
+    setIsOpenConfimPopup(false);
   }
 
   return (

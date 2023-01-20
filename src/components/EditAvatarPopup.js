@@ -33,7 +33,7 @@ function EditAvatarPopup(props) {
 
   return (
     <PopupWithForm
-      disabled={!(errorMessage === "" && isValidInput)}
+      disabled={!isValidInput}
       name="avatar"
       title={"Обновить аватар"}
       buttonText={props.isLoading ? `Сохранение...` : `Сохранить`}
